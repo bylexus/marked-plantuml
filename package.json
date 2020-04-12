@@ -1,0 +1,15 @@
+{
+  "name": "marked-plantuml",
+  "version": "0.0.1",
+  "description": "An enhanced marked version, supporting PlantUML directly in Markdown",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "Alexander Schenkel",
+  "license": "MIT",
+  "dependencies": {
+    "marked": "^0.8.2",
+    "node-fetch": "^2.6.0"
+  }
+}
