@@ -23,8 +23,14 @@ A <|-- B
 
 And here we go. Another one:
 
-@startuml 2nd
+@startuml 2nd.svg
 Bob -> Alice : hello
+@enduml
+
+And a 3rd:
+
+@startuml One nice 3rd image.jpg
+Bob -> Alice : "Hello World"
 @enduml
 `;
 
@@ -34,5 +40,8 @@ const outDir = path.join(__dirname, 'output');
 markedPlant(str,{
     plantumlOutputDir: outDir,
     // renderServerUrl: 'http://www.plantuml.com/plantuml'
-    plantumlExec: '/usr/bin/plantuml'
-}).then(console.log);
+    plantumlExec: '/usr/bin/plantuml',
+    plantumlBase: 'output'
+}).then(console.log).catch(e => {
+    console.error(e);
+});
