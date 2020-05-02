@@ -39,8 +39,8 @@ const outDir = path.join(__dirname, 'output');
 
 markedPlant(str,{
     plantumlOutputDir: outDir,
-    // renderServerUrl: 'http://www.plantuml.com/plantuml'
-    plantumlExec: '/usr/bin/plantuml',
+    renderServerUrl: 'http://www.plantuml.com/plantuml',
+    // plantumlExec: '/usr/bin/plantuml',
     plantumlBase: 'output'
 }).then(console.log).catch(e => {
     console.error(e);
