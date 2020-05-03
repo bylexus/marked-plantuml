@@ -1,1 +1,1 @@
-module.exports = require('./lib/marked-plantuml.js');
+module.exports = require('./dist/marked-plantuml.js');
