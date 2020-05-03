@@ -20,7 +20,7 @@ This wrapper can only be used in a nodejs environment, it is not meant to be use
 ```js
 const path = require('path');
 const marked = require('marked');
-const markedPlant = require('./index.js')(marked);
+const markedPlant = require('marked-plantuml')(marked);
 
 // A Markdown string, containing inline PlantUML code:
 let str = `
@@ -92,6 +92,24 @@ Place your PlantUML directly in your markdown, using the following scheme:
   * eps
   * pdf
   Note that your HTML display tool must be able to make sense of your image types (e.g. pdf in an img tag might be problematic)
+
+## ES6 module usage
+
+You can also use the un-bundled version of the library: The library itself is implemented as an ES6 module.
+If your NodeJS version supports importing it as ES6 module (or if you are using a bundler/transpiler like webpack / babel),
+you can use the unbundled version:
+
+```js
+import marked from 'marked';
+import markedPlantuml from 'marked-plantuml/lib/marked-plantuml.js';
+markedPlantuml = markedPlantuml(marked);
+
+markedPlantuml(yourMarkedString,{
+    // ...
+}).then(html => console.log(html)).catch(e => {
+    console.error(e);
+});
+```
 
 ## License
 

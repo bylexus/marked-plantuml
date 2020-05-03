@@ -7,7 +7,9 @@ module.exports = function (env) {
         output: {
             filename: 'marked-plantuml.js',
             path: path.resolve(__dirname, 'dist'),
+            // Export as NodeJS CommonJS module:
             libraryTarget: 'commonjs2',
+            // The library uses ES6 'export default':
             libraryExport: 'default'
         },
         module: {
