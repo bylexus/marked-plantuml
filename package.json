@@ -1,15 +1,16 @@
 {
     "name": "marked-plantuml",
-    "version": "0.0.1",
-    "description": "An enhanced marked version, supporting PlantUML directly in Markdown",
+    "version": "0.1.0",
+    "description": "A wrapper around the marked library to generate PlantUML images/urls from your Markdown",
     "main": "index.js",
     "scripts": {
         "docker": "docker run --rm -ti -w /src -v $(pwd):/src node:10 bash",
         "build-dev": "NODE_ENV=development webpack --env=development -d",
         "build": "NODE_ENV=production webpack --env=production -p",
+        "docker-plantuml": "docker run -d -p 10000:8080 plantuml/plantuml-server:jetty",
         "test": "npm test"
     },
-    "author": "Alexander Schenkel",
+    "author": "Alexander Schenkel <alex@alexi.ch>",
     "license": "MIT",
     "dependencies": {
         "marked": "^0.8.2",
@@ -72,7 +73,6 @@
             "no-eval": "error",
             "no-loop-func": "error",
             "radix": "error",
-            "comma-dangle": "error",
             "no-undef": "error"
         }
     },
@@ -82,6 +82,6 @@
         "useTabs": false,
         "semi": true,
         "singleQuote": true,
-        "trailingComma": "none"
+        "trailingComma": "es5"
     }
 }

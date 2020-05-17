@@ -1,6 +1,6 @@
 const path = require('path');
 const marked = require('marked');
-const markedPlant = require('./dist')(marked);
+const markedPlant = require('./index.js')(marked);
 
 let str = `
 Hello
@@ -29,7 +29,7 @@ Bob -> Alice : hello
 
 And a 3rd:
 
-@startuml One nice 3rd image.jpg
+@startuml One nice 3rd image.eps
 Bob -> Alice : "Hello World"
 @enduml
 `;
@@ -37,10 +37,13 @@ Bob -> Alice : "Hello World"
 const outDir = path.join(__dirname, 'output');
 
 markedPlant(str, {
+    // plantumlOutputType: 'url', // 'url' | 'image',
+    plantumlOutputType: 'image', // 'url' | 'image',
     plantumlOutputDir: outDir,
     renderServerUrl: 'http://www.plantuml.com/plantuml',
+    // renderServerUrl: 'http://localhost:10000',
     // plantumlExec: '/usr/bin/plantuml',
-    plantumlBase: 'output'
+    plantumlBase: 'output',
 })
     .then(console.log)
     .catch((e) => {

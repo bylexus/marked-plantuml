@@ -7,13 +7,19 @@ from the given Markdown, create diagram images, then hand over to `marked`. In t
 * your Markdown processed as usual with `marked`
 * PlantUML diagram images, linked in the generated HTML.
 
+Images will either be created locally, by using a local PlantUML or a remote render server,
+or the lib will create a full encoded PlantUML image url containing the diagram as encoded
+string.
+
 This wrapper can only be used in a nodejs environment, it is not meant to be used as Browser lib.
+Also, for the time being, it only supports usage as a lib, not as command line tool.
 
 ## Prerequisites
 
 * nodejs
-* A local PlantUML executable OR
-* A PlantUML servlet available via http(s)
+* If you want the image files to be created:
+    * A local PlantUML executable OR
+    * A PlantUML servlet available via http(s)
 
 ## Usage by example:
 
@@ -58,7 +64,9 @@ Bob -> Alice : "Hello World"
 const outDir = path.join(__dirname, 'output');
 
 markedPlant(str,{
-    // Where your image are generated:
+    // Output type: either 'image' or 'url' (default: 'image')
+    plantUmlOutputType: 'image',
+    // Where your image are generated (default: cwd)
     plantumlOutputDir: outDir,
     // The base dir prefix used in the HTML (default: '.')
     plantumlBase: './base/dir',
