@@ -13,7 +13,7 @@
     "author": "Alexander Schenkel <alex@alexi.ch>",
     "license": "MIT",
     "dependencies": {
-        "marked": "^0.8.2",
+        "marked": "^4.0.10",
         "node-fetch": "^2.6.0"
     },
     "devDependencies": {
